@@ -10,9 +10,10 @@
 			width: 50vw;
 			height: 100vh;
 			position: fixed;
-			left: 0;
+			left: -50vw;
 
 			background-color: $color-dark;
+			transition: left .8s cubic-bezier(1, 0, 0, 1);
 
 			.left-img {
 				width: 50%;
@@ -42,11 +43,13 @@
 			width: 50vw;
 			height: 100vh;
 			position: fixed;
-			right: 0;
+			right: -50vw;
 
 			background-color: #1f1d1d;
 
 			@include flexLayoutCenter;
+
+			transition: right .8s cubic-bezier(1, 0, 0, 1);
 		}
 		
 		.navlist {
@@ -73,6 +76,31 @@
 		}
 	}
 }
+
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-left  {
+	left: 0;
+}
+
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-right  {
+	right: 0;
+}
+
+.checkbox:checked ~ .hamburger-menu .menu {
+	transform: rotateZ(90deg);
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-1 {
+	transform: rotateZ(-40deg);
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-2 {
+	opacity: 0;
+}
+
+.checkbox:checked ~ .hamburger-menu .menu-line-3 {
+	transform: rotateZ(40deg);
+}
+
 
 .header {
 	width: 100%;
